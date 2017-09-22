@@ -80,4 +80,6 @@ function gotData(data) {
   text(currentWeather.humidity + "%",20, yPos);
   yPos+=yGap;
 
+
+
 }
