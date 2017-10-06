@@ -4,7 +4,6 @@ https://processing.org/examples/clock.html
 
 */
 
-
 var cx, cy; // center position of canvas
 // Radius for hands of the clock
 var secondsRadius;
