@@ -3,27 +3,24 @@
 var table;
 
 var margin = 150;
-
 // this is an array that will contain all the data in form of javascript objects
 var states = [];
 
-
-
+var maxValueTotal =0;
 
 function preload() {
   //my table is comma separated value "csv"
-  //I'm ignoring the header 
+  //and has a header specifying the columns labels
   table = loadTable("data/ACS_15_5YR_S2401_with_ann_Clean.csv", "csv");
 }
 
 function setup() {  
-   var canvas = createCanvas(900,600);  
-   canvas.parent("container");
-
-   parseData();
-   createList();
+  var canvas = createCanvas(900,600);  
+  canvas.position(20,20);
+  parseData();
+  findMaxValueTotal();
+  createGraph("Alabama");
 }
-
 
 function parseData(){
    //this is the key at the top, we will need it later
@@ -61,43 +58,7 @@ function parseData(){
    }
 }
 
-// now we will display the data in html elements
-function createList(){
-  // starting x and y posiition
-  var xPos = 20;
-  var yPos = 20;
 
-  // creating headers
-  var stateHeader = createDiv("State");
-  stateHeader.position(xPos, yPos);
-  
-  // setting the style
-  stateHeader.style("font-weight", "bold");
-  yPos +=30;
-
-  // go through all states
-  for(var i =0; i<states.length; i++){
-    // Display the state name
-    var stateDiv = createDiv(states[i].name);
-    stateDiv.style("cursor", "hand");
-    stateDiv.position(xPos, yPos);
-    stateDiv.class("listLink");
-    stateDiv.mouseClicked(
-      function(){
-
-        createGraph(this.html());
-
-      var actives = selectAll('.active');
-      // We can then iterate through the array and hide all the elements.
-      for (var j = 0; j < actives.length; j++) {
-        actives[j].removeClass("active");
-      }
-        this.addClass("active");
-      }
-      )
-     yPos +=30;
-  }
-}
 
 function createGraph(name){
   
@@ -160,6 +121,17 @@ function createGraph(name){
   }
 }
 
+
+function findMaxValueTotal(){
+  for(var i=0; i<states.length;i++){
+    for(var j=1;j<states[i].occupations.length; j++){
+      if(states[i].occupations[j].value>maxValueTotal){
+        maxValueTotal = states[i].occupations[j].value;
+      }
+    }
+  }
+}
+
 // helper function to find a state by name
 function findStateByName(name){
   var state;
@@ -170,8 +142,4 @@ function findStateByName(name){
     }
   }
 }
-
-
-
-
 

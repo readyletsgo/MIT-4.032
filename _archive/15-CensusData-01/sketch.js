@@ -1,7 +1,7 @@
 
 // this table will contain the numbers and actual data
 var table;
-// var keyRow, metaRow;
+var keyRow, metaRow;
 
 
 // this is an array that will contain all the data in form of javascript objects
@@ -20,13 +20,15 @@ function setup() {
    noCanvas();
    parseData();
    displayData();
+  
 }
 
 
 function parseData(){
-   //this is the key at the top, we will need it later
-   var keyRow = table.getRow(0);
-   var metaRow = table.getRow(1);
+   //this is the key at the top, we will want it later
+   keyRow = table.getRow(0);
+   metaRow = table.getRow(1);
+
 
     // cycle through each item in that column, ignoring the first two items which are the headers
     for(var i=2;i<table.getRowCount(); i++){    
@@ -37,24 +39,11 @@ function parseData(){
       // create an empty object for each state
       // we will attach all the information to this object
       var state = {};
-      state.id = stateRow.getString(0);
-      state.id2 = stateRow.getString(1);
-      state.name = stateRow.getString(2);
 
-      // this array will hold all occupation data
-      state.occupations = [];
-      
-      for(var j=3; j<table.getColumnCount(); j++){
-        // create an empty object that holds the occupation data for one category
-        var item = {};
-        item.label = metaRow.getString(j);
-        item.key = keyRow.getString(j);
-        item.value = stateRow.getNum(j);
-        
-        // attach the item object to the "occupation" array
-        append(state.occupations, item);
+      // cycle through all variables and attach all the variables to it
+      for(var j=0; j<table.getColumnCount(); j++){
+        state[keyRow.getString(j)] = stateRow.getString(j);
       }
-      // attach the state object to the "states" array
       append(states, state);
    }
 }
@@ -84,8 +73,8 @@ function displayData(){
     var stateDiv = createDiv(states[i].name);
     stateDiv.position(xPos, yPos);
 
-    // Display the population count (the first name in the array)
-    var popDiv = createDiv(states[i].occupations[0].value);
+    // Display the population count (key is "HC01_EST_VC01")
+    var popDiv = createDiv(states[i].HC01_EST_VC01);
     popDiv.position(xPos + 200, yPos);
     popDiv.style("width", "100px");
     popDiv.style("text-align", "right")
