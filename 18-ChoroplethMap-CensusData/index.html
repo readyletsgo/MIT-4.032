@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Choropleth Tutorial - Leaflet</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="libraries/leaflet/leaflet.css"/>
+      <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+<script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script> 
+    <script src="libraries/leaflet/leaflet.js"></script>
+<script type="text/javascript" src="us-states.js"></script>
+<style>
+	html, body {
+		height: 100%;
+		margin: 0;
+	}
+	/*styling for the div which will contain the map*/
+	#map { 
+		width: 400px; 
+		height: 300px; 
+	}
+	/*styling for the div which will contain the p5 canvas */
+	#container{
+		width:900px;
+		height:600px;
+		left:400px;
+		top:0px;
+		background-color: #DDDDDD;
+		position:fixed;
+	}
+</style>
+</head>
+<body>
+<!-- container for map -->
+<div id='map'></div>
+<!-- container for p5 canvas -->
+<div id='container'></div>
+<script type="text/javascript" src="sketch.js"></script>
+
+
+</body>
+</html>
