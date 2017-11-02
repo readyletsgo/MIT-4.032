@@ -83,11 +83,28 @@ var map = L.map('map').setView([36.188574, -86.775464],10);
     map.fitBounds(e.target.getBounds());
   }
 
+  function testEvent(e){
+    
+    // this is the event
+    console.log(e);
+    
+    // this is the overlay
+    console.log(e.target);
+
+    // these are the overlay's properties
+    console.log(e.target.feature.properties);
+
+    // these are the overlay's properties
+    console.log(e.target.feature.properties.zip);
+
+  }
+
+
   function onEachFeature(feature, layer) {
     layer.on({
       mouseover: highlightFeature,
       mouseout: resetHighlight,
-      click: zoomToFeature
+      click: testEvent
     });
   }
 
