@@ -42,6 +42,14 @@ window.onresize = function() {
 // this function gets called when the user drags the window
 function setSize() {
   canvas.size(window.innerWidth, window.innerHeight);
-    barHeight = (height/3) - 20; //dynamic size for height of bar
+  barHeight = (height/3) - 20; //dynamic size for height of bar
   barMax = width-40; // dynamic size for width of bar
 }
+
+
+
+
+
+
+
+
