@@ -9,6 +9,7 @@
                 padding:30px;
                 margin:0px;
             }
+
         h1 {
         	font-family: sans-serif;
         }
@@ -31,6 +32,12 @@
         	background-color:#999999;
 
         }
+        #centered{
+            margin: auto;
+            padding: 0px;
+            width:1024px;
+        }
+
         #unique{
         	font-family: sans-serif;
         	text-transform: uppercase;
@@ -46,11 +53,6 @@
         	color: black;	
         }
         .myClock{
-            padding-top: 100px;
-            padding-bottom: 100px;
-            padding:50px;
-            background-color: #444444;
-            width:100%;
         }
 
 	</style>
@@ -61,13 +63,16 @@
 	</head>
     <!-- THIS IS WHERE HTML BODY STARTS -->
 	<body>
-		<h1>This is heading 1</h1>
-		<h2>This is heading 2</h2>
-		<h3>This is heading 3</h3>
+        <div id="centered">
+    		<h1>This is heading 1</h1>
+    		<h2>This is heading 2</h2>
+    		<h3>This is heading 3</h3>
 
-		<p>This is a <span>paragraph</span>. The <span>same element</span> will get assigned the same styling.
-			You can also create <span class="highlight">custom classes</span>. You can also define <span id="unique">unique elements</span>
-		</p>
-		<a href="http://www.mit.edu">This is an absolute link</a><br/><br/>
+    		<p>This is a <span>paragraph</span>. The <span>same element</span> will get assigned the same styling.
+    			You can also create <span class="highlight">custom classes</span>. You can also define <span id="unique">unique elements</span>
+    		</p>
+    		<a href="http://www.mit.edu">This is an absolute link</a><br/><br/>
+            <div id="myClock"></div>
+        </div>
 	</body>
 </html>
