@@ -1,18 +1,15 @@
 var xPos = 20; // starting x position to draw
 var yPos = 20;  // starting y position to draw
-var barHeight; // height of each bar
-var barMax; // maximum width of each bar <-- this changes over time
-
-var canvas; // a canvas variable so we can use p5.dom.js
-
-
+var barHeight = 180; // height of each bar
+var barMax = 760; // maximum width of each bar <-- this changes over time
+var canvas;
 //this gets called only once in the very beginning
 function setup() {
+	canvas = createCanvas(window.innerWidth, window.innerHeight);
+  setSize();
 
-	canvas = createCanvas(windowWidth-60-100,700); // create the canvas with a dynamic size depending on html window size
-  barHeight = (height/3) - 20; //dynamic size for height of bar
-  barMax = width-40; // dynamic size for width of bar
-  canvas.class('myClock'); //attach an html class to the canvas
+  // barHeight = (height/3) - 20; //dynamic size for height of bar
+  // barMax = width-40; // dynamic size for width of bar
 }
 
 //this gets called every frame (about 60 frames per second)
@@ -37,3 +34,22 @@ function draw() {
   fill(255, 0, 0);
   rect(xPos,yPos + barHeight*2 + 20,s,barHeight);   // Bar for hours
 }
+
+window.onresize = function() { 
+  setSize();
+}
+
+// this function gets called when the user drags the window
+function setSize() {
+  canvas.size(window.innerWidth, window.innerHeight);
+  barHeight = (height/3) - 20; //dynamic size for height of bar
+  barMax = width-40; // dynamic size for width of bar
+}
+
+
+
+
+
+
+
+
