@@ -10,7 +10,7 @@ body {
     padding: 0; margin: 0;
     font-family: sans-serif;
 }
-
+/*The CSS for the container which will contain the p5 canvas*/
 #container{
 	width:900px;
 	height:600px;
@@ -20,6 +20,7 @@ body {
 	position:fixed;
 }
 
+/*The CSS for the scrollable list. The height is fixed and overflow-y guarantees that it can be scrolled*/
 #list{
 	position:fixed;
 	top:40px;
@@ -56,8 +57,11 @@ body {
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
 <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script> 
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
+<!-- This is just a static html headline for the list -->
 <div id="list-header">State</div>
+<!-- This will be the list we will fill using p5 -->
 <div id="list"></div>
+<!-- This container will hold the canvas -->
 <div id="container"></div>
 
 </body>
