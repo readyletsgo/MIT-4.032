@@ -1,17 +1,21 @@
 // This example is by http://www.joemckaystudio.com/multisketches/
 // save this file as sketch.js
 // Sketch One
+var settings = {counter:0};
+
 var s = function( p ) { // p could be any variable name
   var x = 100; 
   var y = 100;
   p.setup = function() {
     p.createCanvas(400, 200);
+    // console.log(test);
   };
 
   p.draw = function() {
     p.background(0);
     p.fill(255);
     p.rect(x,y,50,50);
+    p.text(settings.counter, 20,20);
   };
 };
 var myp5 = new p5(s, 'c1');
@@ -31,9 +35,13 @@ var t = function( p ) {
     x += speed; 
     if(x > p.width){
       x = 0; 
+      settings.counter++;
     }
     p.ellipse(x,y,50,50);
-
   };
+  p.mouseReleased = function(){
+    // console.log(test);
+  }
+
 };
 var myp5 = new p5(t, 'c2');
