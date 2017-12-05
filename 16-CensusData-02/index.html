@@ -20,6 +20,24 @@ body {
 	position:fixed;
 }
 
+#list{
+	position:fixed;
+	top:40px;
+	left:20px;
+	width:200px;
+	height:570px;
+	overflow-y: scroll;
+}
+
+#list-header{
+	position:fixed;
+	top:20px;
+	left:20px;
+	width:200px;
+	height:20px;
+	font-weight: bold;
+}
+
 .listLink{
 	color:black;
 }
@@ -38,7 +56,8 @@ body {
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
 <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script> 
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
-
+<div id="list-header">State</div>
+<div id="list"></div>
 <div id="container"></div>
 
 </body>

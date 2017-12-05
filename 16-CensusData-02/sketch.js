@@ -68,20 +68,23 @@ function createList(){
   var yPos = 20;
 
   // creating headers
-  var stateHeader = createDiv("State");
+  /*var stateHeader = createDiv("State");
+
   stateHeader.position(xPos, yPos);
   
   // setting the style
   stateHeader.style("font-weight", "bold");
-  yPos +=30;
+  yPos +=30;*/
 
   // go through all states
   for(var i =0; i<states.length; i++){
     // Display the state name
     var stateDiv = createDiv(states[i].name);
     stateDiv.style("cursor", "hand");
-    stateDiv.position(xPos, yPos);
+    // stateDiv.position(xPos, yPos);
     stateDiv.class("listLink");
+    stateDiv.parent("list");
+
     stateDiv.mouseClicked(
       function(){
 
