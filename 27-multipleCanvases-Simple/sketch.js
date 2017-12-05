@@ -39,9 +39,5 @@ var t = function( p ) {
     }
     p.ellipse(x,y,50,50);
   };
-  p.mouseReleased = function(){
-    // console.log(test);
-  }
-
 };
 var myp5 = new p5(t, 'c2');
