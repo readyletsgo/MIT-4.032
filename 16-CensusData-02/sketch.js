@@ -63,25 +63,16 @@ function parseData(){
 
 // now we will display the data in html elements
 function createList(){
-  // starting x and y posiition
-  var xPos = 20;
-  var yPos = 20;
-
-  // creating headers
-  var stateHeader = createDiv("State");
-  stateHeader.position(xPos, yPos);
-  
-  // setting the style
-  stateHeader.style("font-weight", "bold");
-  yPos +=30;
 
   // go through all states
   for(var i =0; i<states.length; i++){
     // Display the state name
     var stateDiv = createDiv(states[i].name);
     stateDiv.style("cursor", "hand");
-    stateDiv.position(xPos, yPos);
     stateDiv.class("listLink");
+
+   
+
     stateDiv.mouseClicked(
       function(){
 
@@ -95,8 +86,9 @@ function createList(){
         this.addClass("active");
       }
       )
-     yPos +=30;
   }
+  // The div is added to the parent container with the id: list
+   stateDiv.parent("list");
 }
 
 function createGraph(name){

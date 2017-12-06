@@ -1,6 +1,8 @@
 // array that will contain all the boxes 
 var boxes = [];
 var activeBoxNumber = "None";
+var activeBox;
+var pressed = false;
 
 function setup() {
   createCanvas(600, 400);
@@ -18,7 +20,7 @@ function setup() {
 function draw() {
   background(0);
   //reset the active bubble number
-  activeBoxNumber = "None";
+  activeBox = null;
 
   // go through all boxes
    for (var i = 0; i < boxes.length; i++) {
@@ -28,15 +30,26 @@ function draw() {
     // check if the current bubble is "active" and save that number
     if(boxes[i].active==true){
       activeBoxNumber = i; 
+      activeBox = boxes[i];
     }
   } 
   // Display active bubble number
   fill(255);
-  text("Active Box Number: " + activeBoxNumber, 20,20);
+  if(activeBox!=null){
+  text("Active Box Number: " + activeBox.number, 20,20);
+  }else{
+    text("No box is active", 20,20);
+  }
 }
 
+function mousePressed(){
+  console.log("mouse down");
+  pressed= true;
+}
 
-
+function mouseReleased(){
+  pressed =false;
+}
 // an abstract class that defines an object
 function Box(x, y, number) {
 
@@ -47,10 +60,12 @@ function Box(x, y, number) {
   this.col = color(255,100);
   this.colorRollOff = color(100,100,100);
   this.colorRollOver = color(255,0,0);
+  this.colorPressed = color(0,255,0);
   var size = random(20,50);
   this.width = size;
   this.height = size;
   this.active = false;
+  this.pressed = false;
 
   // update function
   this.update = function() {
@@ -63,6 +78,10 @@ function Box(x, y, number) {
       // if yes, make this box active and change the color to red
       this.col = this.colorRollOver;
       this.active = true; 
+      if(pressed){
+        this.pressed=true;
+      this.col=this.colorPressed;
+      }
       // if no make it inactive and change the color 
     }else{
       this.col = this.colorRollOff;
