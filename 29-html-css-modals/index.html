@@ -1,0 +1,35 @@
+<html>
+	<head>
+	    <title>HTML and css</title>
+	<link rel="stylesheet" href="style.css">
+
+	</head>
+
+	<body>
+        <div id="start">
+            <div class="centered">
+                <h1>Welcome to my project</h1>
+                <span class="btn" onclick="closeNav()">Start</span>
+
+            </div>
+        </div>
+            
+        		<h2>This is heading 2</h2>
+                <p>
+                Here is some intro text about my project, from beginning to end.</p>
+                <span class="btn" onclick="openNav()"> open</span>
+            
+	</body>
+    <script>
+    function openNav() {
+        document.getElementById("start").style.opacity = "1";
+        document.getElementById("start").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("start").style.display = "none";
+        document.getElementById("start").style.opacity = "0";
+    }
+</script>
+     
+</html>
