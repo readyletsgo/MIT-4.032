@@ -1,35 +1,24 @@
+<!DOCTYPE html>
 <html>
-	<head>
-	    <title>HTML and css</title>
-	<link rel="stylesheet" href="style.css">
-
-	</head>
-
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML Menu talking to Canvas</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+    <!-- Make sure to look at the style sheet: -->
+    <link rel="stylesheet" href="style.css">
+  </head>
 	<body>
-        <div id="start">
-            <div class="centered">
-                <h1>Welcome to my project</h1>
-                <span class="btn" onclick="closeNav()">Start</span>
-
-            </div>
+        <!-- this div will contain the menu items in an overlay menu -->
+        <div id="menu"></div> 
+        <!-- this is the main page: canvas and a button -->
+        <div id="main">
+            <div id="canvasContainer"></div>            
+            <!-- this shows how to call a javascript function directly from html -->
+            <div id="menuBtn"><a href="javascript:showMenu()">show Menu</div>
         </div>
-            
-        		<h2>This is heading 2</h2>
-                <p>
-                Here is some intro text about my project, from beginning to end.</p>
-                <span class="btn" onclick="openNav()"> open</span>
-            
-	</body>
-    <script>
-    function openNav() {
-        document.getElementById("start").style.opacity = "1";
-        document.getElementById("start").style.display = "block";
-    }
 
-    function closeNav() {
-        document.getElementById("start").style.display = "none";
-        document.getElementById("start").style.opacity = "0";
-    }
-</script>
-     
+
+	</body>
 </html>

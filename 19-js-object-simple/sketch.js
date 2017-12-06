@@ -1,6 +1,5 @@
 // array that will contain all the boxes 
 var boxes = [];
-var activeBoxNumber = "None";
 var activeBox;
 var pressed = false;
 
@@ -29,7 +28,6 @@ function draw() {
     boxes[i].display();
     // check if the current bubble is "active" and save that number
     if(boxes[i].active==true){
-      activeBoxNumber = i; 
       activeBox = boxes[i];
     }
   } 
